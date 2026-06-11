@@ -1,13 +1,12 @@
 <header class="header">
   <nav class="nav container">
     <div class="nav-brand">
-      <span class="brand-icon">🐝</span>
+      <img class="brand-icon" src="liquidhive_logo.png" alt="LiquidHive" />
       <span class="brand-text">LiquidHive</span>
     </div>
     <div class="nav-links">
       <a href="#apps">Apps</a>
       <a href="#websites">Websites</a>
-      <a href="#contributions">Contributions</a>
       <a href="#about">About</a>
       <button
         class="theme-toggle"
@@ -45,9 +44,7 @@
     </div>
     <div class="hero-stats">
       <div class="stat">
-        <span class="stat-value"
-          >{{ apps.length + websites.length + contributions.length }}</span
-        >
+        <span class="stat-value">{{ apps.length + websites.length }}</span>
         <span class="stat-label">Projects</span>
       </div>
       <div class="stat">
@@ -144,47 +141,6 @@
   </div>
 </section>
 
-<section id="contributions" class="section">
-  <div class="container">
-    <h2 class="section-title">Open Source Contributions</h2>
-    <p class="section-desc">
-      Contributions to the broader open-source community.
-    </p>
-    <div class="project-grid">
-      @for (p of contributions; track p.name) {
-      <div class="project-card">
-        <div class="card-header">
-          <div class="card-icon">
-            <span class="material-symbols-outlined">{{ p.icon }}</span>
-          </div>
-          <h3 class="card-title">{{ p.name }}</h3>
-        </div>
-        <p class="card-tagline">{{ p.tagline }}</p>
-        <p class="card-desc">{{ p.desc }}</p>
-        <div class="card-tags">
-          @for (t of p.tech; track t) {
-          <span class="tag">{{ t }}</span>
-          }
-        </div>
-        <div class="card-links">
-          @for (link of p.links; track link.label) {
-          <a
-            class="btn btn-small"
-            [href]="link.url"
-            target="_blank"
-            rel="noopener"
-          >
-            <span class="material-symbols-outlined">code</span>
-            {{ link.label }}
-          </a>
-          }
-        </div>
-      </div>
-      }
-    </div>
-  </div>
-</section>
-
 <section id="about" class="section alt about">
   <div class="container">
     <h2 class="section-title">About LiquidHive</h2>
@@ -226,7 +182,8 @@
 <footer class="footer">
   <div class="container">
     <div class="footer-brand">
-      <span>🐝 LiquidHive</span>
+      <img class="brand-icon" src="liquidhive_logo.png" alt="LiquidHive" />
+      <span>LiquidHive</span>
     </div>
     <p class="footer-desc">
       Building apps that matter. Privacy-first, cross-platform, open-source.

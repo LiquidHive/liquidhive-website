@@ -7,7 +7,7 @@ interface Project {
   tech: string[];
   icon: string;
   links: { label: string; url: string }[];
-  type: "app" | "web" | "contribution";
+  type: "app" | "web";
 }
 
 @Component({
@@ -150,28 +150,6 @@ export class App {
         },
       ],
     },
-    {
-      name: "AntennaPod",
-      tagline: "Open-source podcast manager for Android.",
-      desc: "A contributed open-source project — the leading ad-free, privacy-respecting podcast manager for Android. Supports RSS subscriptions, offline downloads, variable speed playback, chapter navigation, and transcripts.",
-      tech: ["Java", "Kotlin", "Android", "Gradle"],
-      icon: "headphones",
-      type: "contribution",
-      links: [
-        { label: "Source", url: "https://github.com/AntennaPod/AntennaPod" },
-      ],
-    },
-    {
-      name: "PodcastIndex Web UI",
-      tagline: "Official web interface for PodcastIndex.org.",
-      desc: "A contributed open-source project — the React-based web frontend for PodcastIndex.org. Features podcast search, audio player, app directory, developer docs, and API key management. Served via an Express/Node.js backend.",
-      tech: ["React", "TypeScript", "Express", "Redux", "Webpack"],
-      icon: "rss_feed",
-      type: "contribution",
-      links: [
-        { label: "Source", url: "https://github.com/Podcastindex-org/web-ui" },
-      ],
-    },
   ];
 
   get apps(): Project[] {
@@ -180,9 +158,5 @@ export class App {
 
   get websites(): Project[] {
     return this.projects.filter((p) => p.type === "web");
-  }
-
-  get contributions(): Project[] {
-    return this.projects.filter((p) => p.type === "contribution");
   }
 }
