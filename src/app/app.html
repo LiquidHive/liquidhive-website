@@ -1,0 +1,246 @@
+<header class="header">
+  <nav class="nav container">
+    <div class="nav-brand">
+      <span class="brand-icon">🐝</span>
+      <span class="brand-text">LiquidHive</span>
+    </div>
+    <div class="nav-links">
+      <a href="#apps">Apps</a>
+      <a href="#websites">Websites</a>
+      <a href="#contributions">Contributions</a>
+      <a href="#about">About</a>
+      <button
+        class="theme-toggle"
+        (click)="toggleTheme()"
+        [attr.aria-label]="isDark ? 'Switch to light mode' : 'Switch to dark mode'"
+      >
+        @if (isDark) {
+        <span class="material-symbols-outlined">light_mode</span>
+        } @else {
+        <span class="material-symbols-outlined">dark_mode</span>
+        }
+      </button>
+    </div>
+  </nav>
+</header>
+
+<section class="hero">
+  <div class="container">
+    <div class="hero-badge">Mobile &amp; Web App Development</div>
+    <h1 class="hero-title">Building apps that matter.</h1>
+    <p class="hero-subtitle">
+      LiquidHive crafts beautiful, functional mobile and web applications — from
+      Flutter cross-platform apps to Angular marketing sites. Every project is
+      built with care, privacy, and the user experience in mind.
+    </p>
+    <div class="hero-actions">
+      <a href="#apps" class="btn btn-primary">
+        <span class="material-symbols-outlined">apps</span>
+        Explore Projects
+      </a>
+      <a href="mailto:liquidhive@gmail.com" class="btn btn-secondary">
+        <span class="material-symbols-outlined">mail</span>
+        Get in Touch
+      </a>
+    </div>
+    <div class="hero-stats">
+      <div class="stat">
+        <span class="stat-value"
+          >{{ apps.length + websites.length + contributions.length }}</span
+        >
+        <span class="stat-label">Projects</span>
+      </div>
+      <div class="stat">
+        <span class="stat-value">{{ apps.length }}</span>
+        <span class="stat-label">Mobile Apps</span>
+      </div>
+      <div class="stat">
+        <span class="stat-value">{{ websites.length }}</span>
+        <span class="stat-label">Websites</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="apps" class="section">
+  <div class="container">
+    <h2 class="section-title">Mobile Apps</h2>
+    <p class="section-desc">
+      Cross-platform applications built with Flutter and React Native.
+    </p>
+    <div class="project-grid">
+      @for (p of apps; track p.name) {
+      <div class="project-card">
+        <div class="card-header">
+          <div class="card-icon">
+            <span class="material-symbols-outlined">{{ p.icon }}</span>
+          </div>
+          <h3 class="card-title">{{ p.name }}</h3>
+        </div>
+        <p class="card-tagline">{{ p.tagline }}</p>
+        <p class="card-desc">{{ p.desc }}</p>
+        <div class="card-tags">
+          @for (t of p.tech; track t) {
+          <span class="tag">{{ t }}</span>
+          }
+        </div>
+        <div class="card-links">
+          @for (link of p.links; track link.label) {
+          <a
+            class="btn btn-small"
+            [href]="link.url"
+            target="_blank"
+            rel="noopener"
+          >
+            <span class="material-symbols-outlined">code</span>
+            {{ link.label }}
+          </a>
+          }
+        </div>
+      </div>
+      }
+    </div>
+  </div>
+</section>
+
+<section id="websites" class="section alt">
+  <div class="container">
+    <h2 class="section-title">Websites</h2>
+    <p class="section-desc">
+      Marketing sites and landing pages built with Angular.
+    </p>
+    <div class="project-grid">
+      @for (p of websites; track p.name) {
+      <div class="project-card">
+        <div class="card-header">
+          <div class="card-icon">
+            <span class="material-symbols-outlined">{{ p.icon }}</span>
+          </div>
+          <h3 class="card-title">{{ p.name }}</h3>
+        </div>
+        <p class="card-tagline">{{ p.tagline }}</p>
+        <p class="card-desc">{{ p.desc }}</p>
+        <div class="card-tags">
+          @for (t of p.tech; track t) {
+          <span class="tag">{{ t }}</span>
+          }
+        </div>
+        <div class="card-links">
+          @for (link of p.links; track link.label) {
+          <a
+            class="btn btn-small"
+            [href]="link.url"
+            target="_blank"
+            rel="noopener"
+          >
+            <span class="material-symbols-outlined">code</span>
+            {{ link.label }}
+          </a>
+          }
+        </div>
+      </div>
+      }
+    </div>
+  </div>
+</section>
+
+<section id="contributions" class="section">
+  <div class="container">
+    <h2 class="section-title">Open Source Contributions</h2>
+    <p class="section-desc">
+      Contributions to the broader open-source community.
+    </p>
+    <div class="project-grid">
+      @for (p of contributions; track p.name) {
+      <div class="project-card">
+        <div class="card-header">
+          <div class="card-icon">
+            <span class="material-symbols-outlined">{{ p.icon }}</span>
+          </div>
+          <h3 class="card-title">{{ p.name }}</h3>
+        </div>
+        <p class="card-tagline">{{ p.tagline }}</p>
+        <p class="card-desc">{{ p.desc }}</p>
+        <div class="card-tags">
+          @for (t of p.tech; track t) {
+          <span class="tag">{{ t }}</span>
+          }
+        </div>
+        <div class="card-links">
+          @for (link of p.links; track link.label) {
+          <a
+            class="btn btn-small"
+            [href]="link.url"
+            target="_blank"
+            rel="noopener"
+          >
+            <span class="material-symbols-outlined">code</span>
+            {{ link.label }}
+          </a>
+          }
+        </div>
+      </div>
+      }
+    </div>
+  </div>
+</section>
+
+<section id="about" class="section alt about">
+  <div class="container">
+    <h2 class="section-title">About LiquidHive</h2>
+    <div class="about-content">
+      <p>
+        LiquidHive is a small independent development studio focused on building
+        high-quality mobile and web applications. Every project is crafted with
+        attention to detail, performance, and user privacy.
+      </p>
+      <p>
+        From voice-powered calculators to full Bible study apps, from podcast
+        players to pricing tools for professionals — each project solves a real
+        problem with clean, thoughtful design.
+      </p>
+      <p>
+        All apps are built with cross-platform frameworks (Flutter, React
+        Native) and backed by Angular websites. Data privacy is a core principle
+        — most apps work fully offline with no accounts required.
+      </p>
+      <div class="about-contact">
+        <a href="mailto:liquidhive@gmail.com" class="btn btn-primary">
+          <span class="material-symbols-outlined">mail</span>
+          liquidhive@gmail.com
+        </a>
+        <a
+          href="https://github.com/LiquidHive"
+          target="_blank"
+          rel="noopener"
+          class="btn btn-secondary"
+        >
+          <span class="material-symbols-outlined">code</span>
+          GitHub
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer-brand">
+      <span>🐝 LiquidHive</span>
+    </div>
+    <p class="footer-desc">
+      Building apps that matter. Privacy-first, cross-platform, open-source.
+    </p>
+    <div class="footer-links">
+      <a href="mailto:liquidhive@gmail.com">
+        <span class="material-symbols-outlined">mail</span>
+        Contact
+      </a>
+      <a href="https://github.com/LiquidHive" target="_blank" rel="noopener">
+        <span class="material-symbols-outlined">code</span>
+        GitHub
+      </a>
+    </div>
+    <p class="footer-copy">&copy; 2026 LiquidHive. All rights reserved.</p>
+  </div>
+</footer>
